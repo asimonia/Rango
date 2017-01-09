@@ -15,6 +15,7 @@
 	<div>howdy partner</div>
 	<div>
 		{% if categories %}
+		<strong>Most Liked Categories</strong>
 		<ul>
 			{% for category in categories %}
 				<li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
@@ -24,6 +25,17 @@
 			<strong>There are no categories present</strong>
 		{% endif %}
 	</div>
+	<div>
+		<strong>Most Viewed Pages</strong>
+		{% if pageviews %}
+		<ul>
+			{% for view in pageviews %}
+				<li><a href="{{ view.url }}">{{ view.title }}</a></li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<strong>There are no viewed pages</strong>
+		{% endif %}
 	<div>
 		<a href="/rango/about">About</a><br>
 		<img src="{% static 'images/rango.gif' %}" alt="Pic of Rango">
